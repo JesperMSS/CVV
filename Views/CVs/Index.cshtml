@@ -1,0 +1,63 @@
+﻿@model IEnumerable<CVSITEHT2021.Models.CV>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Index</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.Name)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.PhoneNumber)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Mail)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Education)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Workplace)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Competences)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.Name)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.PhoneNumber)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Mail)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Education)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Workplace)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Competences)
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { id=item.id }) |
+            @Html.ActionLink("Details", "Details", new { id=item.id }) |
+            @Html.ActionLink("Delete", "Delete", new { id=item.id })
+        </td>
+    </tr>
+}
+
+</table>
