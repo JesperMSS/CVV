@@ -17,5 +17,6 @@ namespace CVSITEHT2021.Models
         }
         public DbSet<CV> cv { get; set; } 
 
+        public DbSet<Project> Projects { get; set; } 
     }
 }
