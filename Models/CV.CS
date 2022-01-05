@@ -30,6 +30,8 @@ namespace CVSITEHT2021.Models
 
         public string Competences { get; set; }
 
+        public string ImagePath { get; set; }
+
         public CV()
         {
 
