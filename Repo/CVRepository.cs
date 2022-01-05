@@ -15,6 +15,10 @@ namespace CVSITEHT2021.Repo
         {
             _context = context;
         }
+        public CVRepository cvRepo
+        {
+            get { return new CVRepository(_context ?? new CVDatabase()); }
+        }
 
         public CV getCv(int Id) { 
             return _context.cv

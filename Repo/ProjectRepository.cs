@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using CVSITEHT2021.Models;
+using System.Data.Entity;
 
 namespace CVSITEHT2021.Repo
 {
@@ -17,8 +18,10 @@ namespace CVSITEHT2021.Repo
 
         public Project GetProject(int id)
         {
-            return _context.Projects.FirstOrDefault(x => x.ID == id);
+            return _context.Projects.Include(x => x.CVs)
+                .FirstOrDefault(x => x.ID == id);
         }
+    
 
         public bool DeleteProject(int id)
         {
@@ -34,6 +37,21 @@ namespace CVSITEHT2021.Repo
             return _context.Projects.ToList();
         }
 
+        public void addProjectToCV(string user, int Projid)
+        {
+                var proj = GetProject(Projid);
+                proj.CVs.Add(_context.cv.FirstOrDefault(x => x.Mail == user));
+               saveProject(proj);
+                _context.SaveChanges();
+
+        }
+
+        public void leaveProject(string user, int Projid)
+        {
+            var proj = GetProject(Projid);
+            proj.CVs.Remove(_context.cv.FirstOrDefault(x => x.Mail == user));
+            _context.SaveChanges();
+        }
 
         public Project saveProject(Project project)
         {

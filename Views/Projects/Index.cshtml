@@ -35,9 +35,18 @@
             @Html.DisplayFor(modelItem => item.CreatedBy)
         </td>
         <td>
-            @Html.ActionLink("Edit", "Edit", new { id=item.ID }) |
-            @Html.ActionLink("Details", "Details", new { id=item.ID }) |
-            @Html.ActionLink("Delete", "Delete", new { id=item.ID })
+            @if (item.CVs.FirstOrDefault(x => x.Mail == User.Identity.Name) == null)
+            {
+                @Html.ActionLink("Join", "Join", new { id = item.ID });
+            }
+            else
+            {
+                @Html.ActionLink("Leave", "Leave", new { id = item.ID });
+            }
+            |
+            @Html.ActionLink("Details", "Details", new { id = item.ID }) |
+            @Html.ActionLink("Delete", "Delete", new { id = item.ID })
+
         </td>
     </tr>
 }

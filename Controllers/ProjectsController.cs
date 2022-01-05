@@ -8,13 +8,17 @@ using System.Net;
 using System.Web;
 using System.Web.Mvc;
 using CVSITEHT2021.Models;
-
+using CVSITEHT2021.Repo;
 namespace CVSITEHT2021.Controllers
 {
     public class ProjectsController : Controller
     {
         private ApplicationDbContext db = new ApplicationDbContext();
-
+        private readonly CVDatabase _context;
+        public ProjectRepository projRepo
+        {
+            get { return new ProjectRepository(_context ?? new CVDatabase()); }
+        }
         // GET: Projects
         public async Task<ActionResult> Index()
         {
@@ -116,6 +120,21 @@ namespace CVSITEHT2021.Controllers
             return RedirectToAction("Index");
         }
 
+        
+        public ActionResult Join(int id)
+        {
+            var user = User.Identity.Name;
+            projRepo.addProjectToCV(user, id);
+            return RedirectToAction("Index");
+
+        }
+
+        public ActionResult Leave(int id)
+        {
+            var user = User.Identity.Name;
+            projRepo.leaveProject(user, id);
+            return RedirectToAction("Index");
+        }
         protected override void Dispose(bool disposing)
         {
             if (disposing)
