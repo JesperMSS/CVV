@@ -8,27 +8,36 @@ using System.Net;
 using System.Web;
 using System.Web.Mvc;
 using CVSITEHT2021.Models;
+using CVSITEHT2021.Repo;
+using Microsoft.AspNet.Identity.Owin;
 
 namespace CVSITEHT2021.Controllers
 {
     public class CVsController : Controller
     {
         private ApplicationDbContext db = new ApplicationDbContext();
+        private readonly CVDatabase _context;
+        public CVRepository cvRepo
+        {
+            get { return new CVRepository(_context ?? new CVDatabase()); }
+        }
 
         // GET: CVs
-        public async Task<ActionResult> Index()
+        public ActionResult Index()
         {
-            return View(await db.cv.ToListAsync());
+
+            return View(cvRepo.GetAllCvs());
         }
 
         // GET: CVs/Details/5
-        public async Task<ActionResult> Details(int? id)
+        public ActionResult Details(int id)
         {
+            
             if (id == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            CV cV = await db.cv.FindAsync(id);
+            CV cV = cvRepo.getCv(id);
             if (cV == null)
             {
                 return HttpNotFound();
@@ -37,9 +46,17 @@ namespace CVSITEHT2021.Controllers
         }
 
         // GET: CVs/Create
+
         public ActionResult Create()
         {
-            return View();
+            var user = User.Identity.Name;
+
+           if(cvRepo.getCvByUser(user) == null)
+            {
+                return View();
+            }
+            var id = cvRepo.getIdByUser(User.Identity.Name);
+            return RedirectToAction("Details/" + id);
         }
 
         // POST: CVs/Create
@@ -56,7 +73,6 @@ namespace CVSITEHT2021.Controllers
                 await db.SaveChangesAsync();
                 return RedirectToAction("Index");
             }
-
             return View(cV);
         }
 

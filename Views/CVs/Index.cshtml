@@ -33,31 +33,37 @@
     </tr>
 
 @foreach (var item in Model) {
-    <tr>
-        <td>
-            @Html.DisplayFor(modelItem => item.Name)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.PhoneNumber)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Mail)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Education)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Workplace)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Competences)
-        </td>
-        <td>
-            @Html.ActionLink("Edit", "Edit", new { id=item.id }) |
-            @Html.ActionLink("Details", "Details", new { id=item.id }) |
-            @Html.ActionLink("Delete", "Delete", new { id=item.id })
-        </td>
-    </tr>
+<tr>
+    <td>
+        @Html.DisplayFor(modelItem => item.Name)
+    </td>
+    <td>
+        @Html.DisplayFor(modelItem => item.PhoneNumber)
+    </td>
+    <td>
+        @Html.DisplayFor(modelItem => item.Mail)
+    </td>
+    <td>
+        @Html.DisplayFor(modelItem => item.Education)
+    </td>
+    <td>
+        @Html.DisplayFor(modelItem => item.Workplace)
+    </td>
+    <td>
+        @Html.DisplayFor(modelItem => item.Competences)
+    </td>    <td>
+        @foreach (var items in item.Projects)
+        {
+            @Html.DisplayFor(modelItem => items.Title)
+        }
+
+    </td>
+    <td>
+        @Html.ActionLink("Edit", "Edit", new { id = item.id }) |
+        @Html.ActionLink("Details", "Details", new { id = item.id }) |
+        @Html.ActionLink("Delete", "Delete", new { id = item.id })
+    </td>
+</tr>
 }
 
 </table>

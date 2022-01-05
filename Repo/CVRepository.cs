@@ -30,6 +30,18 @@ namespace CVSITEHT2021.Repo
             _context.SaveChanges();
             return true;
         }
+        public CV getCvByUser(string user)
+        {
+            return _context.cv.Include(x => x.Projects).FirstOrDefault(x => x.Mail == user);
+           
+        }
+        
+        public int getIdByUser(string user)
+        {
+            var cV = _context.cv.Include(x => x.Projects).FirstOrDefault(x => x.Mail == user);
+
+            return cV.id;
+        }
 
          public List<CV> GetAllCvs()
         {
@@ -48,6 +60,7 @@ namespace CVSITEHT2021.Repo
             {
                 _context.cv.Add(cV);
             }
+            _context.SaveChanges();
             return cV;
         }
     }
