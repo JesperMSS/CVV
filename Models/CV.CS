@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 using Microsoft.AspNet.Identity;
 using Microsoft.AspNet.Identity.EntityFramework;
 using System.ComponentModel.DataAnnotations;
-
+using System.ComponentModel;
 
 namespace CVSITEHT2021.Models
 {
@@ -20,6 +20,7 @@ namespace CVSITEHT2021.Models
         [Required]
         public string Name { get; set; }
 
+        [DisplayName("Phone number")]
         public string PhoneNumber { get; set; }
 
         public string Mail { get; set; }
