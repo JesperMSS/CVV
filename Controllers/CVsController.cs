@@ -101,7 +101,7 @@ namespace CVSITEHT2021.Controllers
         [HttpPost]
         [ValidateAntiForgeryToken]
         [Authorize]
-        public async Task<ActionResult> Edit([Bind(Include = "id,Name,PhoneNumber,Mail,Education,Workplace,Competences")] CV cV)
+        public async Task<ActionResult> Edit([Bind(Include = "id,Name,PhoneNumber,Mail,Education,Workplace,Competences,PrivateProfile")] CV cV)
         {
             if (ModelState.IsValid)
             {
