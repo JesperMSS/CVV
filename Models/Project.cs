@@ -8,6 +8,8 @@ using System.Threading.Tasks;
 using Microsoft.AspNet.Identity;
 using Microsoft.AspNet.Identity.EntityFramework;
 using System.ComponentModel.DataAnnotations;
+using System.ComponentModel;
+
 
 namespace CVSITEHT2021.Models
 {
@@ -22,7 +24,8 @@ namespace CVSITEHT2021.Models
         [Required]
         public string Description { get; set; }
 
-        [Required]
+        [DisplayName("Created by")]
+     
         public string CreatedBy { get; set; }
 
         public virtual ICollection<CV> CVs { get; set; }

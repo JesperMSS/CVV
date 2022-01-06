@@ -9,6 +9,8 @@ using System.Web;
 using System.Web.Mvc;
 using CVSITEHT2021.Models;
 using CVSITEHT2021.Repo;
+using Microsoft.AspNet.Identity.Owin;
+
 namespace CVSITEHT2021.Controllers
 {
     public class ProjectsController : Controller
@@ -57,12 +59,16 @@ namespace CVSITEHT2021.Controllers
         [HttpPost]
         [ValidateAntiForgeryToken]
         [Authorize]
-        public async Task<ActionResult> Create([Bind(Include = "ID,Title,Description,CreatedBy")] Project project)
+        public async Task<ActionResult> Create([Bind(Include = "ID,Title,Description")] Project project)
         {
+            project.CreatedBy = User.Identity.Name;
             if (ModelState.IsValid)
             {
+                var user = User.Identity.Name;
+
                 db.Projects.Add(project);
                 await db.SaveChangesAsync();
+                projRepo.addProjectToCV(user, project.ID);
                 return RedirectToAction("Index");
             }
 
@@ -130,7 +136,7 @@ namespace CVSITEHT2021.Controllers
             return RedirectToAction("Index");
         }
 
-        
+
         public ActionResult Join(int id)
         {
             var user = User.Identity.Name;

@@ -33,6 +33,8 @@ namespace CVSITEHT2021.Models
 
         public string ImagePath { get; set; }
 
+        [DisplayName("Private profile")]
+
         public bool PrivateProfile { get; set; }
 
         public CV()

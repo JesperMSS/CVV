@@ -1,13 +1,14 @@
 ﻿@using (Html.BeginForm("NameSearchResult", "CVs"))
 {
 
-    <h4>Search</h4>
+    <h2>Search</h2>
     <hr />
     <div class="row">
         <div class="col-md-4"
             <form asp-action="NameSearchResult">
-
+                
                 <div class="form-group">
+                    <h4>Enter a name</h4>
                     <label for="SearchPhrase" class="control-label"></label>
                     <input name="SearchPhrase" class="form-control" />
                 </div>
@@ -22,7 +23,7 @@
 }
 
 
-<div>
+@*<div>
     @Html.ActionLink("Back", "Index")
-</div>
+</div>*@
 

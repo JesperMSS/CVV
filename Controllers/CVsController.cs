@@ -107,7 +107,7 @@ namespace CVSITEHT2021.Controllers
             {
                 db.Entry(cV).State = EntityState.Modified;
                 await db.SaveChangesAsync();
-                return RedirectToAction("Index");
+                return RedirectToAction("Details/" + cV.id);
             }
             return View(cV);
         }
