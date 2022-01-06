@@ -233,6 +233,10 @@
     <Compile Include="Migrations\202201051053447_newest migration.Designer.cs">
       <DependentUpon>202201051053447_newest migration.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\202201060921508_Update.cs" />
+    <Compile Include="Migrations\202201060921508_Update.Designer.cs">
+      <DependentUpon>202201060921508_Update.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
     <Compile Include="Models\Project.cs" />
@@ -253,7 +257,7 @@
     <Content Include="Content\bootstrap-theme.min.css" />
     <Content Include="Content\bootstrap.css" />
     <Content Include="Content\bootstrap.min.css" />
-    <Content Include="Content\bootstraplux.css" />
+    <Content Include="Content\bootstraplumen.css" />
     <Content Include="favicon.ico" />
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Global.asax" />
@@ -345,6 +349,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\202201051053447_newest migration.resx">
       <DependentUpon>202201051053447_newest migration.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202201060921508_Update.resx">
+      <DependentUpon>202201060921508_Update.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

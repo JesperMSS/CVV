@@ -23,6 +23,7 @@ namespace CVSITEHT2021.Controllers
         }
 
         // GET: CVs
+        [Authorize]
         public ActionResult Index()
         {
 
@@ -30,6 +31,7 @@ namespace CVSITEHT2021.Controllers
         }
 
         // GET: CVs/Details/5
+        [Authorize]
         public ActionResult Details(int id)
         {
             
@@ -46,7 +48,7 @@ namespace CVSITEHT2021.Controllers
         }
 
         // GET: CVs/Create
-
+        [Authorize]
         public ActionResult Create()
         {
             var user = User.Identity.Name;
@@ -63,6 +65,7 @@ namespace CVSITEHT2021.Controllers
         // To protect from overposting attacks, enable the specific properties you want to bind to, for 
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
+        [Authorize]
         [ValidateAntiForgeryToken]
         public async Task<ActionResult> Create([Bind(Include = "id,Name,PhoneNumber,Mail,Education,Workplace,Competences")] CV cV)
         {
@@ -77,6 +80,7 @@ namespace CVSITEHT2021.Controllers
         }
 
         // GET: CVs/Edit/5
+        [Authorize]
         public async Task<ActionResult> Edit(int? id)
         {
             if (id == null)
@@ -96,6 +100,7 @@ namespace CVSITEHT2021.Controllers
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
+        [Authorize]
         public async Task<ActionResult> Edit([Bind(Include = "id,Name,PhoneNumber,Mail,Education,Workplace,Competences")] CV cV)
         {
             if (ModelState.IsValid)
@@ -108,6 +113,7 @@ namespace CVSITEHT2021.Controllers
         }
 
         // GET: CVs/Delete/5
+        [Authorize]
         public async Task<ActionResult> Delete(int? id)
         {
             if (id == null)
@@ -123,6 +129,7 @@ namespace CVSITEHT2021.Controllers
         }
 
         // POST: CVs/Delete/5
+        [Authorize]
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]
         public async Task<ActionResult> DeleteConfirmed(int id)
@@ -142,6 +149,7 @@ namespace CVSITEHT2021.Controllers
             base.Dispose(disposing);
         }
 
+        
         public async Task<ActionResult> NameSearchForm()
         {
             return View();

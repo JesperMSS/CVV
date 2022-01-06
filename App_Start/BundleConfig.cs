@@ -23,7 +23,7 @@ namespace CVSITEHT2021
                       "~/Scripts/bootstrap.js"));
 
             bundles.Add(new StyleBundle("~/Content/css").Include(
-                      "~/Content/bootstrap.css",
+                      "~/Content/bootstraplumen.css",
                       "~/Content/site.css"));
         }
     }

@@ -19,13 +19,17 @@ namespace CVSITEHT2021.Controllers
         {
             get { return new ProjectRepository(_context ?? new CVDatabase()); }
         }
+
+
         // GET: Projects
+        [Authorize]
         public async Task<ActionResult> Index()
         {
             return View(await db.Projects.ToListAsync());
         }
 
         // GET: Projects/Details/5
+        [Authorize]
         public async Task<ActionResult> Details(int? id)
         {
             if (id == null)
@@ -41,6 +45,7 @@ namespace CVSITEHT2021.Controllers
         }
 
         // GET: Projects/Create
+        [Authorize]
         public ActionResult Create()
         {
             return View();
@@ -51,6 +56,7 @@ namespace CVSITEHT2021.Controllers
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
+        [Authorize]
         public async Task<ActionResult> Create([Bind(Include = "ID,Title,Description,CreatedBy")] Project project)
         {
             if (ModelState.IsValid)
@@ -64,6 +70,7 @@ namespace CVSITEHT2021.Controllers
         }
 
         // GET: Projects/Edit/5
+        [Authorize]
         public async Task<ActionResult> Edit(int? id)
         {
             if (id == null)
@@ -83,6 +90,7 @@ namespace CVSITEHT2021.Controllers
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
+        [Authorize]
         public async Task<ActionResult> Edit([Bind(Include = "ID,Title,Description,CreatedBy")] Project project)
         {
             if (ModelState.IsValid)
@@ -95,6 +103,7 @@ namespace CVSITEHT2021.Controllers
         }
 
         // GET: Projects/Delete/5
+        [Authorize]
         public async Task<ActionResult> Delete(int? id)
         {
             if (id == null)
@@ -112,6 +121,7 @@ namespace CVSITEHT2021.Controllers
         // POST: Projects/Delete/5
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]
+        [Authorize]
         public async Task<ActionResult> DeleteConfirmed(int id)
         {
             Project project = await db.Projects.FindAsync(id);
