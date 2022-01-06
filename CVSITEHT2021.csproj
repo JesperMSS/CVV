@@ -332,6 +332,7 @@
     <Content Include="Views\CVs\Index.cshtml" />
     <Content Include="Views\CVs\NameSearchResult.cshtml" />
     <Content Include="Views\CVs\NameSearchForm.cshtml" />
+    <Content Include="Views\Projects\Redirect.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

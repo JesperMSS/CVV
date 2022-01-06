@@ -1,0 +1,15 @@
+﻿@using (Html.BeginForm())
+{
+    @Html.AntiForgeryToken()
+
+    <h4>What would you like to do?</h4>
+    @Html.ActionLink("Create a new project", "Create")
+    <br>
+    @Html.ActionLink("See available projects", "Index")
+    <br/>
+    @Html.ActionLink("See your projects", "Index")
+
+
+
+}
+

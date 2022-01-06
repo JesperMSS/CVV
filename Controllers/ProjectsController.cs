@@ -153,5 +153,10 @@ namespace CVSITEHT2021.Controllers
             }
             base.Dispose(disposing);
         }
+
+        public ActionResult Redirect()
+        {
+            return View();
+        }
     }
 }

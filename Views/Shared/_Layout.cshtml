@@ -30,7 +30,7 @@
                     }
                     @if (User.Identity.IsAuthenticated)
                     {
-                        <li>@Html.ActionLink("Projects", "Create", "Projects")</li>
+                        <li>@Html.ActionLink("Projects", "Redirect", "Projects")</li>
                     }
                 </ul>
                 @Html.Partial("_LoginPartial")
