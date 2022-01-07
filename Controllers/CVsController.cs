@@ -26,6 +26,8 @@ namespace CVSITEHT2021.Controllers
         [Authorize]
         public ActionResult Index()
         {
+            var user = User.Identity.Name;
+            ViewBag.CV = user;
 
             return View(cvRepo.GetAllCvs());
         }
@@ -157,8 +159,13 @@ namespace CVSITEHT2021.Controllers
 
         public async Task<ActionResult> NameSearchResult(String SearchPhrase)
         {
-            return View("Index", await db.cv.Where(j => j.Name.Contains
-            (SearchPhrase)).ToListAsync());
+            if (User.Identity.IsAuthenticated)
+            {
+                return View("Index", await db.cv.Where(j => j.Name.Contains
+                (SearchPhrase)).ToListAsync());
+            }
+            return View("Index", cvRepo.getAllNonPrivateCV().Where(j => j.Name.Contains
+                 (SearchPhrase)));
         }
     }
 }

@@ -67,5 +67,11 @@ namespace CVSITEHT2021.Repo
             _context.SaveChanges();
             return cV;
         }
+
+        public List<CV> getAllNonPrivateCV()
+        {
+            List<CV> cVs = _context.cv.Where(x => x.PrivateProfile == false).ToList();
+            return cVs;
+        }
     }
 }
