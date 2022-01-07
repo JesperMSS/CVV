@@ -73,5 +73,10 @@ namespace CVSITEHT2021.Repo
             List<CV> cVs = _context.cv.Where(x => x.PrivateProfile == false).ToList();
             return cVs;
         }
+
+        //public List<CV> getUserProjects()
+        //{
+        //    List<CV> cVs = _context.cv
+        //}
     }
 }

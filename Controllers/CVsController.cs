@@ -161,11 +161,15 @@ namespace CVSITEHT2021.Controllers
         {
             if (User.Identity.IsAuthenticated)
             {
-                return View("Index", await db.cv.Where(j => j.Name.Contains
-                (SearchPhrase)).ToListAsync());
+                //return View("Index", await db.cv.Where(j => j.Name.Contains
+                //(SearchPhrase)).ToListAsync());
+                return View("Index", cvRepo.GetAllCvs().Where(j => j.Name.Contains
+                 (SearchPhrase)));
             }
             return View("Index", cvRepo.getAllNonPrivateCV().Where(j => j.Name.Contains
                  (SearchPhrase)));
         }
+
+      
     }
 }
