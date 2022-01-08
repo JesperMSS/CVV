@@ -91,11 +91,21 @@ namespace CVSITEHT2021.Controllers
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
             CV cV = await db.cv.FindAsync(id);
+            CvEditViewModel model = new CvEditViewModel
+            {
+                Id = cV.id,
+                Competences = cV.Competences,
+                ExistingImagePath = cV.ImagePath,
+                Education = cV.Education,
+                Name = cV.Name,
+                Workplace = cV.Workplace,
+                PhoneNumber = cV.PhoneNumber,
+            };
             if (cV == null)
             {
                 return HttpNotFound();
             }
-            return View(cV);
+            return View(model);
         }
 
         // POST: CVs/Edit/5
@@ -104,13 +114,14 @@ namespace CVSITEHT2021.Controllers
         [HttpPost]
         [ValidateAntiForgeryToken]
         [Authorize]
-        public async Task<ActionResult> Edit([Bind(Include = "id,Name,PhoneNumber,Mail,Education,Workplace,Competences,PrivateProfile")] CV cV)
+        public ActionResult Edit(CvEditViewModel cV)
         {
             if (ModelState.IsValid)
             {
-                db.Entry(cV).State = EntityState.Modified;
-                await db.SaveChangesAsync();
-                return RedirectToAction("Details/" + cV.id);
+
+                cvRepo.editCv(cV);
+
+                return RedirectToAction("Details/" + cV.Id);
             }
             return View(cV);
         }

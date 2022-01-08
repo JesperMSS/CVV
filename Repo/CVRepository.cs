@@ -36,12 +36,14 @@ namespace CVSITEHT2021.Repo
                 PhoneNumber = "9000-9",
                 Mail = model.Mail,
                 Workplace = model.Workplace,
-                PrivateProfile = false
+                PrivateProfile = false,
+                ImagePath = "",
             };
 
             if (model.Image != null)
             {
-                cV.ImagePath = imageService.SaveImageToDisk(model.Image);
+              var path = imageService.SaveImageToDisk(model.Image);
+                cV.ImagePath = path;
                 model.ExistingImagePath = cV.ImagePath;
             }
             saveCv(cV);
@@ -93,10 +95,34 @@ namespace CVSITEHT2021.Repo
             _context.SaveChanges();
             return cV;
         }
+
         public List<CV> getAllNonPrivateCV()
         {
             List<CV> cVs = _context.cv.Where(x => x.PrivateProfile == false).ToList();
             return cVs;
+        }
+
+        public CV editCv(CvEditViewModel model)
+        {
+
+            CV cv = _context.cv.FirstOrDefault(x => x.id == model.Id);
+
+            if (model.Image != null && model.ExistingImagePath != cv.ImagePath)
+            {
+                imageService.RemoveImageFromDiskIfExists(cv.ImagePath);
+                cv.ImagePath = imageService.SaveImageToDisk(model.Image);
+                model.ExistingImagePath = cv.ImagePath;
+            }
+
+            cv.Name = model.Name;
+            cv.PhoneNumber = model.PhoneNumber;
+            cv.Competences = model.Competences;
+            cv.Education = model.Competences;
+            cv.PrivateProfile = false;
+            cv.Workplace = model.Workplace;
+            saveCv(cv);
+
+            return cv;
         }
     }
 }

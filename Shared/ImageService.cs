@@ -22,5 +22,27 @@ namespace CVSITEHT2021.Shared
             httpPostedFile.SaveAs(path);
             return filename;
         }
+
+
+        public bool RemoveImageFromDiskIfExists(string imagefilename)
+        {
+            var imagefolder = HttpContext.Current.Server.MapPath("~/Images");
+            var fullpath = Path.Combine(imagefolder, imagefilename);
+            try
+            {
+                if (File.Exists(fullpath))
+                {
+                    File.Delete(fullpath);
+                    return true;
+                }
+
+                return false;
+            }
+            catch
+            {
+                return false;
+            }
+
+        }
     }
 }
