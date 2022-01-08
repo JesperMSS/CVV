@@ -276,7 +276,8 @@
     <Compile Include="Repo\ProjectRepository.cs" />
     <Compile Include="Services\CvService.cs" />
     <Compile Include="Services\ImageService.cs" />
-    <Compile Include="Shared\Models\CvEditViewModel.cs" />
+    <Compile Include="Shared\ImageService.cs" />
+    <Compile Include="Models\CvEditViewModel.cs" />
     <Compile Include="Startup.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -362,6 +363,7 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
+    <Folder Include="Shared\Models\" />
     <Folder Include="Views\Default\" />
   </ItemGroup>
   <ItemGroup>

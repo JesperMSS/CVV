@@ -7,7 +7,8 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Web;
 
-namespace Shared
+
+namespace CVSITEHT2021.Models
 {
     public class CvEditViewModel
     {
@@ -34,9 +35,6 @@ namespace Shared
         [DisplayName("Bild")]
         public HttpPostedFileBase Image { get; set; }
         public string ExistingImagePath { get; set; }
-        public bool IsCreateCvView { get; set; }
-
-
     }
 
     public class CvDeleteModel

@@ -10,6 +10,7 @@ using System.Web.Mvc;
 using CVSITEHT2021.Models;
 using CVSITEHT2021.Repo;
 using Microsoft.AspNet.Identity.Owin;
+using CVSITEHT2021.Shared;
 
 namespace CVSITEHT2021.Controllers
 {
@@ -69,12 +70,12 @@ namespace CVSITEHT2021.Controllers
         [HttpPost]
         [Authorize]
         [ValidateAntiForgeryToken]
-        public async Task<ActionResult> Create([Bind(Include = "id,Name,PhoneNumber,Mail,Education,Workplace,Competences")] CV cV)
+        public async Task<ActionResult> Create(CvEditViewModel cV)
         {
             if (ModelState.IsValid)
             {
                 cV.Mail = User.Identity.Name;
-                db.cv.Add(cV);
+                cvRepo.createCv(cV);
                 await db.SaveChangesAsync();
                 return RedirectToAction("Index");
             }
