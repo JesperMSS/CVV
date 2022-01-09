@@ -3,26 +3,31 @@
     ViewBag.Title = "Home Page";
 }
 
-<h2>Welcome to CV-site(n)</h2>
+<h2>Welcome to CV-siten</h2>
 <hr />
 
 <div>
     <div>
-        <h2>Cvs</h2>
+        <h3>Selection of members</h3>
 
         <ul>
             @foreach (var item in ViewBag.Name)
             {
                 <li>@item</li>
+                @Html.ActionLink("View profile", "Details", "CV", new { id = ViewBag.cvID }, htmlAttributes: null)
 
-          
+
+
 
             }
         </ul>
         <ul>
+            <h3>Selection of projects</h3>
             @foreach (var item in ViewBag.projectTitle)
             {
                 <li>@item</li>
+                @Html.ActionLink("Read more about this project", "Details", "Project", new { id = ViewBag.projId }, htmlAttributes: null)
+
 
             }
         </ul>

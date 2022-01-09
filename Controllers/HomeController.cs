@@ -25,8 +25,8 @@ namespace CVSITEHT2021.Controllers
 
         public ActionResult Index()
         {
-            if (User.Identity.IsAuthenticated)
-            {
+            //if (User.Identity.IsAuthenticated)
+            //{
                 var cv = cvRepo.GetAllCvs();
                 List<string> Name = new List<string>();
                 List<int> cvID = new List<int>();
@@ -39,7 +39,7 @@ namespace CVSITEHT2021.Controllers
                 }
                 ViewBag.cvID = cvID;
                 ViewBag.Name = Name;
-            }
+            //}
 
             var projects = projRepo.getAllProjects();
 

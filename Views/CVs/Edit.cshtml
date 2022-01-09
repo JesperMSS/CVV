@@ -6,19 +6,19 @@
     ViewBag.Title = "Edit";
 }
 
-<h2>Edit</h2>
+<h2>Edit CV</h2>
 
 @using (Html.BeginForm("Edit", "CVs", FormMethod.Post, new { enctype = "multipart/form-data", @class = "" }))
 {
     @Html.AntiForgeryToken()
 
 <div class="form-horizontal">
-    <h4>CV</h4>
+ 
 
 
     @if (!string.IsNullOrEmpty(Model.ExistingImagePath))
     {
-        <h3>Omslagsbild just nu:</h3>
+        <h3>Current profile picture:</h3>
         <img src="@(ImageService.GetImagePathRelative(Model.ExistingImagePath))" style="max-width: 200px; max-height: 200px" />
     }
 
@@ -90,6 +90,6 @@
 </div>
 }
 
-<div>
+@*<div>
     @Html.ActionLink("Back to List", "Index")
-</div>
+</div>*@
