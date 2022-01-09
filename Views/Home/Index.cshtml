@@ -3,25 +3,22 @@
     ViewBag.Title = "Home Page";
 }
 
-<h2>Welcome to CV-siten</h2>
+<h2>Welcome to CV-site(n)</h2>
 <hr />
 
 <div>
     <div>
-        <h3>Selection of members</h3>
+        <h2>Cvs</h2>
 
         <ul>
             @foreach (var item in ViewBag.Name)
             {
                 <li>@item</li>
 
-
+          
 
             }
         </ul>
-
-        <h3>Selection of projects</h3>
-
         <ul>
             @foreach (var item in ViewBag.projectTitle)
             {

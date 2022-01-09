@@ -17,22 +17,22 @@ namespace CVSITEHT2021.Models
         [DisplayName("Name")]
         public string Name { get; set; }
 
-        [DisplayName("Phone number")]
+        [DisplayName("Telefonnummer")]
         public string PhoneNumber { get; set; }
 
         [DisplayName("E-mail")]
         public string Mail { get; set; }
 
-        [DisplayName("Education")]
+        [DisplayName("Utbildning")]
         public string Education { get; set; }
 
-        [DisplayName("Workplace")]
+        [DisplayName("Arbetsplats")]
         public string Workplace { get; set; }
 
-        [DisplayName("Competences")]
+        [DisplayName("Kompetenser")]
         public string Competences { get; set; }
 
-        [DisplayName("Image")]
+        [DisplayName("Bild")]
         public HttpPostedFileBase Image { get; set; }
         public string ExistingImagePath { get; set; }
 

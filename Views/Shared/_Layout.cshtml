@@ -31,10 +31,7 @@
                     @if (User.Identity.IsAuthenticated)
                     {
                         <li>@Html.ActionLink("Projects", "Redirect", "Projects")</li>
-                        <li>@Html.ActionLink("Unread messages", "Index", "Messages")</li>
-                        <li> <h5 id="unreadMsg">: </h5></li>
-
-
+                        <li> <h5 id="unreadMsg"> Unread msg :  </h5></li>
 
                     }
                 </ul>

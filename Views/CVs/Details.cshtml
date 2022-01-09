@@ -10,7 +10,7 @@
 <div>
     <hr />
     <dl class="dl-horizontal">
-
+        
         <dd>
             @if (!string.IsNullOrEmpty(Model.ImagePath))
             {
@@ -66,11 +66,6 @@
         <dd>
             @Html.DisplayFor(model => model.Competences)
         </dd>
-
-        <dt>
-            @Html.DisplayNameFor(model => model.Projects)
-        </dt>
-
         <dd>
             @foreach (var items in Model.Projects)
             {
@@ -81,10 +76,9 @@
     </dl>
 </div>
 
-<p>
-    @Html.ActionLink("Edit", "Edit", new { id = Model.id })
-</p>
-
 <div>@{Html.RenderAction("Create", "Messages", new { id = Model.id });} </div>
 
 
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.id }) 
+</p>
