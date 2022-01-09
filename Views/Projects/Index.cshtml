@@ -14,12 +14,12 @@
         <th>
             @Html.DisplayNameFor(model => model.Title)
         </th>
-        <th>
+        @*<th>
             @Html.DisplayNameFor(model => model.Description)
         </th>
         <th>
             @Html.DisplayNameFor(model => model.CreatedBy)
-        </th>
+        </th>*@
         <th></th>
     </tr>
 
@@ -28,12 +28,12 @@
         <td>
             @Html.DisplayFor(modelItem => item.Title)
         </td>
-        <td>
+        @*<td>
             @Html.DisplayFor(modelItem => item.Description)
         </td>
         <td>
             @Html.DisplayFor(modelItem => item.CreatedBy)
-        </td>
+        </td>*@
         <td>
             @if (item.CVs.FirstOrDefault(x => x.Mail == User.Identity.Name) == null)
             {
