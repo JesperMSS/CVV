@@ -39,6 +39,12 @@ namespace CVSITEHT2021.Repo
             return msg;
         }
 
+        public List<Message> getMsgByUser(string user)
+        {
+            var UserCVID = _context.cv.FirstOrDefault(x => x.Mail == user).id;
+            return GetMessageByCV(UserCVID);
+        }
+
         public List<Message> getUsersUnreadMsg(int id)
         {
             var msg = GetMessageByCV(id);

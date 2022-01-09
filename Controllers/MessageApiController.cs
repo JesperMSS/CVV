@@ -32,5 +32,14 @@ namespace CVSITEHT2021.Controllers
             return Ok();
         }
     
+        [Route("api/CountMsg/")]
+        [HttpGet]
+        public int countMsg()
+        {
+            var msg = msgRepo.getMsgByUser(User.Identity.Name);
+
+            return msg.Count();
+        }
+
     }
 }

@@ -42,7 +42,7 @@ namespace CVSITEHT2021.Repo
 
             if (model.Image != null)
             {
-              var path = imageService.SaveImageToDisk(model.Image);
+                var path = imageService.SaveImageToDisk(model.Image);
                 cV.ImagePath = path;
                 model.ExistingImagePath = cV.ImagePath;
             }
@@ -104,16 +104,13 @@ namespace CVSITEHT2021.Repo
 
         public CV editCv(CvEditViewModel model)
         {
-
             CV cv = _context.cv.FirstOrDefault(x => x.id == model.Id);
-
             if (model.Image != null && model.ExistingImagePath != cv.ImagePath)
             {
                 imageService.RemoveImageFromDiskIfExists(cv.ImagePath);
                 cv.ImagePath = imageService.SaveImageToDisk(model.Image);
                 model.ExistingImagePath = cv.ImagePath;
             }
-
             cv.Name = model.Name;
             cv.PhoneNumber = model.PhoneNumber;
             cv.Competences = model.Competences;
@@ -121,7 +118,6 @@ namespace CVSITEHT2021.Repo
             cv.PrivateProfile = false;
             cv.Workplace = model.Workplace;
             saveCv(cv);
-
             return cv;
         }
     }
