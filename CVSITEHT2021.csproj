@@ -253,13 +253,9 @@
     <Compile Include="Migrations\202201061034119_my new migration.Designer.cs">
       <DependentUpon>202201061034119_my new migration.cs</DependentUpon>
     </Compile>
-    <Compile Include="Migrations\202201071831120_ne.cs" />
-    <Compile Include="Migrations\202201071831120_ne.Designer.cs">
-      <DependentUpon>202201071831120_ne.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\202201071833326_msg.cs" />
-    <Compile Include="Migrations\202201071833326_msg.Designer.cs">
-      <DependentUpon>202201071833326_msg.cs</DependentUpon>
+    <Compile Include="Migrations\202201091619369_mymsg.cs" />
+    <Compile Include="Migrations\202201091619369_mymsg.Designer.cs">
+      <DependentUpon>202201091619369_mymsg.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
@@ -390,11 +386,8 @@
     <EmbeddedResource Include="Migrations\202201061034119_my new migration.resx">
       <DependentUpon>202201061034119_my new migration.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\202201071831120_ne.resx">
-      <DependentUpon>202201071831120_ne.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\202201071833326_msg.resx">
-      <DependentUpon>202201071833326_msg.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\202201091619369_mymsg.resx">
+      <DependentUpon>202201091619369_mymsg.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

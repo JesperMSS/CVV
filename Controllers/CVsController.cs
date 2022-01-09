@@ -100,6 +100,7 @@ namespace CVSITEHT2021.Controllers
                 Name = cV.Name,
                 Workplace = cV.Workplace,
                 PhoneNumber = cV.PhoneNumber,
+                PrivateProfile = cV.PrivateProfile,
             };
             if (cV == null)
             {

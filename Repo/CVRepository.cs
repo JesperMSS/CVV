@@ -115,7 +115,7 @@ namespace CVSITEHT2021.Repo
             cv.PhoneNumber = model.PhoneNumber;
             cv.Competences = model.Competences;
             cv.Education = model.Competences;
-            cv.PrivateProfile = false;
+            cv.PrivateProfile = model.PrivateProfile;
             cv.Workplace = model.Workplace;
             saveCv(cv);
             return cv;

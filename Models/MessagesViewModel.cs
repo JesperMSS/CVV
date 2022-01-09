@@ -10,6 +10,7 @@ namespace CVSITEHT2021.Models
 
     public class MessagesViewModel
     {
+        [Key]
         public int MessageID { get; set; }
 
         [Required]

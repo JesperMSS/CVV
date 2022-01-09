@@ -7,13 +7,13 @@ namespace CVSITEHT2021.Migrations
     using System.Resources;
     
     [GeneratedCode("EntityFramework.Migrations", "6.1.3-40302")]
-    public sealed partial class msg : IMigrationMetadata
+    public sealed partial class mymsg : IMigrationMetadata
     {
-        private readonly ResourceManager Resources = new ResourceManager(typeof(msg));
+        private readonly ResourceManager Resources = new ResourceManager(typeof(mymsg));
         
         string IMigrationMetadata.Id
         {
-            get { return "202201071833326_msg"; }
+            get { return "202201091619369_mymsg"; }
         }
         
         string IMigrationMetadata.Source

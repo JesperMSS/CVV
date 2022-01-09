@@ -35,6 +35,9 @@ namespace CVSITEHT2021.Models
         [DisplayName("Bild")]
         public HttpPostedFileBase Image { get; set; }
         public string ExistingImagePath { get; set; }
+
+        [DisplayName("Private profile")]
+        public bool PrivateProfile { get; set; }
     }
 
     public class CvDeleteModel
