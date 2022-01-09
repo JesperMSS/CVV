@@ -13,15 +13,13 @@ namespace CVSITEHT2021.Models
         public int MessageID { get; set; }
 
         [Required]
-        [StringLength(100, ErrorMessage = "Meddelandet måste minst vara {2} karaktärer långt.", MinimumLength = 3)]
-        [Display(Name = "Innehåll:")]
+        public string Title { get; set;}
+        [Required]
         public string Content { get; set; }
 
         public int Reciver { get; set; }
-
         [Required]
-        [StringLength(100, ErrorMessage = "Ditt namn måste vara minst {2} karaktärer långt.", MinimumLength = 2)]
-        [Display(Name = "Avsändare:")]
+        [Display(Name = "Name: ")]
         public string Sender { get; set; }
     }
 }

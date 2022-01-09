@@ -1,6 +1,40 @@
-﻿@{
+﻿
+@{
     ViewBag.Title = "Home Page";
 }
 
 <h2>Welcome to CV-site(n)</h2>
 <hr />
+
+<div>
+    <div>
+        <h2>Cvs</h2>
+        <ul>
+            @foreach (var item in ViewBag.Name)
+            {
+                <li>@item</li>
+            }
+        </ul>
+        <ul>
+            @foreach (var item in ViewBag.projectTitle)
+            {
+                <li>@item</li>
+            }
+        </ul>
+    </div>
+
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+

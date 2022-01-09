@@ -1,4 +1,5 @@
-﻿@model CVSITEHT2021.Models.CV
+﻿@using CVSITEHT2021.Shared;
+@model CVSITEHT2021.Models.CV
 
 @{
     ViewBag.Title = "Details";
@@ -9,6 +10,15 @@
 <div>
     <hr />
     <dl class="dl-horizontal">
+        
+        <dd>
+            @if (!string.IsNullOrEmpty(Model.ImagePath))
+            {
+                <img src="@(ImageService.GetImagePathRelative(Model.ImagePath))" style="max-width: 200px; max-height: 200px" />
+            }
+        </dd>
+
+
         <dt>
             @Html.DisplayNameFor(model => model.Name)
         </dt>
@@ -56,9 +66,18 @@
         <dd>
             @Html.DisplayFor(model => model.Competences)
         </dd>
+        <dd>
+            @foreach (var items in Model.Projects)
+            {
+                @Html.DisplayFor(modelItem => items.Title) <h5> </h5>
+            }
 
+        </dd>
     </dl>
 </div>
+
+<div>@{Html.RenderAction("Create", "Messages", new { id = Model.id });} </div>
+
 
 <p>
     @Html.ActionLink("Edit", "Edit", new { id = Model.id }) 

@@ -17,12 +17,13 @@ namespace CVSITEHT2021.Controllers
             get { return new MessageRepository(_context ?? new CVDatabase()); }
         }
 
-        [Route("api/SendAPI/{id}/{content}/{sender}")]
+        [Route("api/SendAPI/{id}/{title}/{content}/{sender}")]
         [HttpGet]
-        public IHttpActionResult SendMessage(int id, string Content, string sender)
+        public IHttpActionResult SendMessage(int id, string Title,  string Content, string sender)
         {
             Message msg = new Message
             {
+                title = Title,
                 content = Content,
                 Sender = sender,
                 CVId = id,
