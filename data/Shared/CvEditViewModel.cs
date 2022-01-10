@@ -1,4 +1,5 @@
 ﻿using System.ComponentModel;
+using System.ComponentModel.DataAnnotations;
 using System.Web;
 
 
@@ -12,6 +13,7 @@ namespace data.Shared
         public string Name { get; set; }
 
         [DisplayName("Phone number")]
+        //[RegularExpression(@"^(\+\d{1, 2}\s)?\(?\d{3}\)?[\s.-]\d{ 3}[\s.-]\d{ 4}$)", ErrorMessage = "Atleast one character in the e-mail is invalid")]
         public string PhoneNumber { get; set; }
 
         [DisplayName("E-mail")]

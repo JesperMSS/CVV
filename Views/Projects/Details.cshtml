@@ -44,14 +44,13 @@
             {
                 if (User.Identity.IsAuthenticated)
                 {
-                    @Html.DisplayFor(modelItem => items.Name) <h5> </h5>
-                    <a href="~/CVs/Details/@items.id" class="btn btn-default ">View profile</a>
-
+                    <br /> @Html.DisplayFor(modelItem => items.Name) <br />
+                    @Html.ActionLink("View profile", "Details", "CVs", new { id = items.id }, null)
                 }
                 else if (!items.PrivateProfile)
                 {
-                    @Html.DisplayFor(modelItem => items.Name) <h5> </h5>
-                    <a href="~/CVs/Details/@items.id" class="btn btn-default ">View profile</a>
+                    <br /> @Html.DisplayFor(modelItem => items.Name) <br />
+                    @Html.ActionLink("View profile", "Details", "CVs", new { id = items.id }, null)
 
                 }
             }

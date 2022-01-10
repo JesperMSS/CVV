@@ -1,7 +1,6 @@
 ﻿@using CVSITEHT2021.Models;
 @using data.Models;
 @using data.Shared;
-@*@model CVSITEHT2021.Models.IndexViewModel*@
 @model CVSITEHT2021.Models.CvEditViewModel
 
 @{
@@ -23,9 +22,6 @@
             <h3>Current profile picture:</h3>
             <img src="@(ImageService.GetImagePathRelative(Model.ExistingImagePath))" style="max-width: 200px; max-height: 200px" />
         }
-
-
-
 
         <hr />
         @Html.ValidationSummary(true, "", new { @class = "text-danger" })
@@ -97,7 +93,3 @@
 
 
 }
-
-@*<div>
-        @Html.ActionLink("Back to List", "Index")
-    </div>*@

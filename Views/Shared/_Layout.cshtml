@@ -24,16 +24,14 @@
                 <ul class="nav navbar-nav">
 
                     <li>@Html.ActionLink("Search", "NameSearchForm", "CVs")</li>
+                 
                     @if (User.Identity.IsAuthenticated)
                     {
                         <li>@Html.ActionLink("Your CV", "Create", "CVs")</li>
-                    }
-                    @if (User.Identity.IsAuthenticated)
-                    {
                         <li>@Html.ActionLink("Find members", "Index", "CVs")</li>
-                        <li>@Html.ActionLink("Projects", "Redirect", "Projects")</li> 
-                        <li>@Html.ActionLink("Unread messages", "Index", "Messages")</li>
-                        <li id="unreadMsg">:</li>
+                        <li>@Html.ActionLink("Projects", "Redirect", "Projects")</li>
+                        <li> <a href="~/Messages" id="unreadMsg">Unread messages: </a></li>
+
 
                     }
                 </ul>
@@ -51,20 +49,14 @@
 
 
     <script>
+
         var loggedIn = @User.Identity.IsAuthenticated.ToString().ToLower();
         if (loggedIn) {
             $.get('/api/CountMsg/', function (data){
                 $('#unreadMsg').append(data);
+
             })
         }
-
-         @*var loggedIn = @User.Identity.IsAuthenticated.ToString().ToLower();
-        if (loggedIn) {
-            $.get('/api/CountMsg/', function (data){
-                $("#unreadMsg").html("Unread messages:" + data);
-            })
-        }*@
-
     </script>
 
 

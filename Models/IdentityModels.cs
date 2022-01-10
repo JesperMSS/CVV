@@ -35,6 +35,5 @@ namespace CVSITEHT2021.Models
 
         public System.Data.Entity.DbSet<data.Models.Project> Projects { get; set; }
 
-        //public System.Data.Entity.DbSet<CVSITEHT2021.Models.ApplicationUser> ApplicationUsers { get; set; }
     }
 }

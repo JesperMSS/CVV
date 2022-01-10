@@ -159,11 +159,5 @@ namespace CVSITEHT2021.Controllers
         {
             return View();
         }
-
-        //public async Task<ActionResult> UserProject(int id)
-        //{
-        //    return View("Index", await db.Projects.Where(j => j..Contains
-        //      (id)).ToListAsync());
-        //}
     }
 }

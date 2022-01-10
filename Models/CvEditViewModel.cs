@@ -1,4 +1,5 @@
 ﻿using System.ComponentModel;
+using System.ComponentModel.DataAnnotations;
 using System.Web;
 
 
@@ -12,6 +13,7 @@ namespace CVSITEHT2021.Models
         public string Name { get; set; }
 
         [DisplayName("Phone number")]
+
         public string PhoneNumber { get; set; }
 
         [DisplayName("E-mail")]

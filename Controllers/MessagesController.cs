@@ -27,7 +27,7 @@ namespace CVSITEHT2021.Controllers
             var cv = cvRepo.getCvByUser(User.Identity.Name);
             if (cv == null)
             {
-                return RedirectToAction("Create", "CVs"); 
+                return RedirectToAction("Create", "CVs");
             }
             var messages = msgRepo.getMsgByUser(User.Identity.Name);
             return View(messages.ToList());

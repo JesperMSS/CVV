@@ -13,7 +13,6 @@ namespace data.Models
         public string Name { get; set; }
 
         [DisplayName("Phone number")]
-        [RegularExpression(@"^(\+\d{1, 2}\s)?\(?\d{3}\)?[\s.-]\d{ 3}[\s.-]\d{ 4}$)")]
         public string PhoneNumber { get; set; }
 
         public string Mail { get; set; }

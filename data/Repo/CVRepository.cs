@@ -105,9 +105,10 @@ namespace data.Repo
             CV cv = _context.cv.FirstOrDefault(x => x.id == model.Id);
             if (model.Image != null)
             {
-                if (cv.ImagePath != null) { 
+                if (cv.ImagePath != null)
+                {
                     imageService.RemoveImageFromDiskIfExists(cv.ImagePath);
-            }
+                }
                 cv.ImagePath = imageService.SaveImageToDisk(model.Image);
                 model.ExistingImagePath = cv.ImagePath;
             }
