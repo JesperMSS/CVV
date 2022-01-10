@@ -32,7 +32,7 @@ namespace CVSITEHT2021.Controllers
         }
 
         // GET: Projects/Details/5
-        [Authorize]
+        [AllowAnonymous]
         public async Task<ActionResult> Details(int? id)
         {
             if (id == null)

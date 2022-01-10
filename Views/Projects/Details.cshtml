@@ -34,6 +34,28 @@
             @Html.DisplayFor(model => model.CreatedBy)
         </dd>
 
+        <dt>
+            Users in this project
+        </dt>
+
+        <dd>
+
+            @foreach (var items in Model.CVs)
+            {
+                if (User.Identity.IsAuthenticated)
+                {
+                    @Html.DisplayFor(modelItem => items.Name) <h5> </h5>
+                    <a href="~/CVs/Details/@items.id" class="btn btn-default ">View profile</a>
+
+                }
+                else if (!items.PrivateProfile)
+                {
+                    @Html.DisplayFor(modelItem => items.Name) <h5> </h5>
+                    <a href="~/CVs/Details/@items.id" class="btn btn-default ">View profile</a>
+
+                }
+            }
+        </dd>
     </dl>
 
 

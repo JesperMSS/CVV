@@ -30,7 +30,7 @@ namespace CVSITEHT2021.Controllers
         }
 
         // GET: CVs/Details/5
-        [Authorize]
+        [AllowAnonymous] 
         public ActionResult Details(int id)
         {
             
@@ -73,7 +73,7 @@ namespace CVSITEHT2021.Controllers
                 cV.Mail = User.Identity.Name;
                 cvRepo.createCv(cV);
                 await db.SaveChangesAsync();
-                return RedirectToAction("Index");
+                return RedirectToAction("Details/" + cvRepo.GetAllCvs().FirstOrDefault(x => x.Mail == User.Identity.Name).id);
             }
             return View(cV);
         }

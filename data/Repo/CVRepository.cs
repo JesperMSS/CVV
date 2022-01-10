@@ -33,7 +33,7 @@ namespace data.Repo
                 Competences = model.Competences,
                 Education = model.Education,
                 Name = model.Name,
-                PhoneNumber = "9000-9",
+                PhoneNumber = model.PhoneNumber,
                 Mail = model.Mail,
                 Workplace = model.Workplace,
                 PrivateProfile = false,
