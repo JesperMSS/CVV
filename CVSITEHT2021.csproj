@@ -380,8 +380,8 @@
     </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\data\data.csproj">
-      <Project>{43ab374c-f6b6-4edc-938c-54b10c2f8ce2}</Project>
+    <ProjectReference Include="data\data.csproj">
+      <Project>{98045f33-148a-468a-96b4-1f515e10706d}</Project>
       <Name>data</Name>
     </ProjectReference>
   </ItemGroup>

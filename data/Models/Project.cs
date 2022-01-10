@@ -24,7 +24,7 @@ namespace data.Models
         public string Description { get; set; }
 
         [DisplayName("Created by")]
-     
+
         public string CreatedBy { get; set; }
 
         public virtual ICollection<CV> CVs { get; set; }

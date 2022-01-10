@@ -13,9 +13,9 @@ namespace data.Models
         public CVDatabase() : base("DefaultConnection")
         {
         }
-        public DbSet<CV> cv { get; set; } 
+        public DbSet<CV> cv { get; set; }
 
-        public DbSet<Project> Projects { get; set; } 
+        public DbSet<Project> Projects { get; set; }
 
         public DbSet<Message> Messages { get; set; }
     }

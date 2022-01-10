@@ -42,8 +42,8 @@ namespace data.Repo
 
         public List<Message> getMsgByUser(string user)
         {
-                var UserCVID = _context.cv.FirstOrDefault(x => x.Mail == user).id;
-                return GetMessageByCV(UserCVID);
+            var UserCVID = _context.cv.FirstOrDefault(x => x.Mail == user).id;
+            return GetMessageByCV(UserCVID);
         }
 
         public List<Message> getUsersUnreadMsg(int id)
@@ -55,7 +55,7 @@ namespace data.Repo
 
         public void saveMessage(Message message)
         {
-            if (message.MessageId != 0) 
+            if (message.MessageId != 0)
             {
                 _context.Entry(message).State = System.Data.Entity.EntityState.Modified;
             }

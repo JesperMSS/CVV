@@ -12,8 +12,8 @@ namespace data.Repo
     {
         private readonly CVDatabase _context;
 
-         
-        public CVRepository (CVDatabase context)
+
+        public CVRepository(CVDatabase context)
         {
             _context = context;
         }
@@ -49,7 +49,8 @@ namespace data.Repo
             saveCv(cV);
             return cV;
         }
-        public CV getCv(int Id) { 
+        public CV getCv(int Id)
+        {
             return _context.cv
                 .Include(x => x.Projects)
                 .FirstOrDefault(x => x.id == Id);
@@ -65,9 +66,9 @@ namespace data.Repo
         public CV getCvByUser(string user)
         {
             return _context.cv.Include(x => x.Projects).FirstOrDefault(x => x.Mail == user);
-           
+
         }
-        
+
         public int getIdByUser(string user)
         {
             var cV = _context.cv.Include(x => x.Projects).FirstOrDefault(x => x.Mail == user);
@@ -75,16 +76,16 @@ namespace data.Repo
             return cV.id;
         }
 
-         public List<CV> GetAllCvs()
+        public List<CV> GetAllCvs()
         {
             return _context.cv
                 .Include(x => x.Projects)
                 .ToList();
         }
 
-        public CV saveCv (CV cV)
+        public CV saveCv(CV cV)
         {
-            if(cV.id != 0)
+            if (cV.id != 0)
             {
                 _context.Entry(cV).State = EntityState.Modified;
             }

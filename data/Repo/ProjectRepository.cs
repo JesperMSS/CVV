@@ -21,7 +21,7 @@ namespace data.Repo
             return _context.Projects.Include(x => x.CVs)
                 .FirstOrDefault(x => x.ID == id);
         }
-    
+
 
         public bool DeleteProject(int id)
         {
@@ -39,10 +39,10 @@ namespace data.Repo
 
         public void addProjectToCV(string user, int Projid)
         {
-                var proj = GetProject(Projid);
-                proj.CVs.Add(_context.cv.FirstOrDefault(x => x.Mail == user));
-               saveProject(proj);
-                _context.SaveChanges();
+            var proj = GetProject(Projid);
+            proj.CVs.Add(_context.cv.FirstOrDefault(x => x.Mail == user));
+            saveProject(proj);
+            _context.SaveChanges();
 
         }
 
@@ -58,7 +58,8 @@ namespace data.Repo
             if (project.ID != 0)
             {
                 _context.Entry(project).State = System.Data.Entity.EntityState.Modified;
-            }else
+            }
+            else
             {
                 _context.Projects.Add(project);
             }
