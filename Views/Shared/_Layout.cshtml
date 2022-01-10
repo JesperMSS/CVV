@@ -58,6 +58,13 @@
             })
         }
 
+         @*var loggedIn = @User.Identity.IsAuthenticated.ToString().ToLower();
+        if (loggedIn) {
+            $.get('/api/CountMsg/', function (data){
+                $("#unreadMsg").html("Unread messages:" + data);
+            })
+        }*@
+
     </script>
 
 

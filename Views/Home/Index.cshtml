@@ -13,27 +13,25 @@
         <ul>
             @foreach (var item in ViewBag.Name)
             {
-                
+
                 <li>@item</li>
-                @Html.ActionLink("View profile", "Details", "CVs",  new { id = ViewBag.cvID[i] }, null)
+                @Html.ActionLink("View profile", "Details", "CVs", new { id = ViewBag.cvID[i] }, null)
                 i++;
             }
         </ul>
 
-      
+        <h3>Selection of projects</h3>
         <ul>
-            <h3>Selection of projects</h3>
+
             @{var x = 0;}
             @foreach (var item in ViewBag.projectTitle)
             {
                 <li>@item</li>
                 @Html.ActionLink("Read more about this project", "Details", "Projects", new { id = ViewBag.projId[x] }, null)
                 x++;
-
             }
         </ul>
     </div>
-
 </div>
 
 
