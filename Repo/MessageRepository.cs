@@ -54,8 +54,14 @@ namespace CVSITEHT2021.Repo
 
         public void saveMessage(Message message)
         {
-
-            _context.Entry(message).State = System.Data.Entity.EntityState.Modified;
+            if (message.MessageId != 0) 
+            {
+                _context.Entry(message).State = System.Data.Entity.EntityState.Modified;
+            }
+            else
+            {
+                _context.Messages.Add(message);
+            }
             _context.SaveChanges();
         }
 
