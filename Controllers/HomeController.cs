@@ -1,11 +1,12 @@
 ﻿using CVSITEHT2021.Models;
-using CVSITEHT2021.Repo;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using System.Web;
 using System.Web.Mvc;
+using data.Repo;
+using data.Models;
 
 namespace CVSITEHT2021.Controllers
 {

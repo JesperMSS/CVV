@@ -6,8 +6,9 @@ using System.Linq;
 using System.Net;
 using System.Web;
 using System.Web.Mvc;
-using CVSITEHT2021.Repo;
 using CVSITEHT2021.Models;
+using data.Repo;
+using data.Models;
 
 namespace CVSITEHT2021.Controllers
 {

@@ -7,6 +7,8 @@ using Microsoft.AspNet.Identity;
 using Microsoft.AspNet.Identity.Owin;
 using Microsoft.Owin.Security;
 using CVSITEHT2021.Models;
+using data.Repo;
+using data.Models;
 
 namespace CVSITEHT2021.Controllers
 {

@@ -3,6 +3,7 @@ using System.Security.Claims;
 using System.Threading.Tasks;
 using Microsoft.AspNet.Identity;
 using Microsoft.AspNet.Identity.EntityFramework;
+using data.Models;
 
 namespace CVSITEHT2021.Models
 {
@@ -32,7 +33,7 @@ namespace CVSITEHT2021.Models
             return new ApplicationDbContext();
         }
 
-        public System.Data.Entity.DbSet<CVSITEHT2021.Models.Project> Projects { get; set; }
+        public System.Data.Entity.DbSet<data.Models.Project> Projects { get; set; }
 
         //public System.Data.Entity.DbSet<CVSITEHT2021.Models.ApplicationUser> ApplicationUsers { get; set; }
     }

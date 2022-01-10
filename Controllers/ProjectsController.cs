@@ -8,8 +8,9 @@ using System.Net;
 using System.Web;
 using System.Web.Mvc;
 using CVSITEHT2021.Models;
-using CVSITEHT2021.Repo;
 using Microsoft.AspNet.Identity.Owin;
+using data.Repo;
+using data.Models;
 
 namespace CVSITEHT2021.Controllers
 {

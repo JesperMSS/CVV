@@ -1,16 +1,12 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.Data;
-using System.Data.Entity;
 using System.Linq;
 using System.Threading.Tasks;
 using System.Net;
-using System.Web;
 using System.Web.Mvc;
 using CVSITEHT2021.Models;
-using CVSITEHT2021.Repo;
-using Microsoft.AspNet.Identity.Owin;
-using CVSITEHT2021.Shared;
+using data.Models;
+using data.Repo;
 
 namespace CVSITEHT2021.Controllers
 {
@@ -70,7 +66,7 @@ namespace CVSITEHT2021.Controllers
         [HttpPost]
         [Authorize]
         [ValidateAntiForgeryToken]
-        public async Task<ActionResult> Create(CvEditViewModel cV)
+        public async Task<ActionResult> Create(data.Shared.CvEditViewModel cV)
         {
             if (ModelState.IsValid)
             {
@@ -115,7 +111,7 @@ namespace CVSITEHT2021.Controllers
         [HttpPost]
         [ValidateAntiForgeryToken]
         [Authorize]
-        public ActionResult Edit(CvEditViewModel cV)
+        public ActionResult Edit(data.Shared.CvEditViewModel cV)
         {
             if (ModelState.IsValid)
             {

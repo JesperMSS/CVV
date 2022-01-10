@@ -1,5 +1,6 @@
-﻿@using CVSITEHT2021.Shared;
-@model CVSITEHT2021.Models.CV
+﻿@using data.Shared;
+@model data.Models.CV
+
 
 @{
     ViewBag.Title = "Details";
@@ -83,9 +84,9 @@
 
 @if (User.Identity.Name == Model.Mail)
 {
-<p>
-    @Html.ActionLink("Edit", "Edit", new { id = Model.id })
-</p>
+    <p>
+        @Html.ActionLink("Edit", "Edit", new { id = Model.id })
+    </p>
 }
 else
 {

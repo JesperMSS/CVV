@@ -1,5 +1,6 @@
 ﻿@using CVSITEHT2021.Models;
-@using CVSITEHT2021.Shared;
+@using data.Models;
+@using data.Shared;
 @*@model CVSITEHT2021.Models.IndexViewModel*@
 @model CVSITEHT2021.Models.CvEditViewModel
 
@@ -45,7 +46,7 @@
         <div class="form-group">
             @Html.LabelFor(x => x.Image, htmlAttributes: new { @class = "control-label col-md-2" })
             <div class="col-md-10">
-                @Html.TextBox(nameof(CvEditViewModel.Image), "", new { type = "file" })
+                @Html.TextBox(nameof(CVSITEHT2021.Models.CvEditViewModel.Image), "", new { type = "file" })
             </div>
         </div>
         <div class="form-group">

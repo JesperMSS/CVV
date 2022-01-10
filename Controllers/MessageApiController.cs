@@ -3,8 +3,8 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using System.Web.Http;
-using CVSITEHT2021.Models;
-using CVSITEHT2021.Repo;
+using data.Repo;
+using data.Models;
 
 namespace CVSITEHT2021.Controllers
 {

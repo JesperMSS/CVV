@@ -11,6 +11,8 @@ using Microsoft.Owin.Security;
 using CVSITEHT2021.Models;
 using Microsoft.AspNet.Identity.EntityFramework;
 using System.Net;
+using data.Repo;
+using data.Models;
 
 namespace CVSITEHT2021.Controllers
 {
