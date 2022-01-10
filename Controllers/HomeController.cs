@@ -25,21 +25,40 @@ namespace CVSITEHT2021.Controllers
 
         public ActionResult Index()
         {
-            //if (User.Identity.IsAuthenticated)
-            //{
+            if (User.Identity.IsAuthenticated)
+            {
+                
                 var cv = cvRepo.GetAllCvs();
+                var count = cv.Count();
                 List<string> Name = new List<string>();
                 List<int> cvID = new List<int>();
-                for (int i = 0; i <= 5 && i < cv.Count(); i++)
+                for (int i = 0; i <= 5 && i < count; i++)
                 {
                     CV cV = cv.First();
                     Name.Add(cV.Name);
                     cvID.Add(cV.id);
                     cv.Remove(cV);
                 }
+
                 ViewBag.cvID = cvID;
                 ViewBag.Name = Name;
-            //}
+            } else
+            {
+                var notPrivateCV = cvRepo.getAllNonPrivateCV();
+                List<string> npName = new List<string>();
+                List<int> npcvID = new List<int>();
+                for (int i = 0; i <= 5 && i < notPrivateCV.Count(); i++)
+                {
+                    CV cV = notPrivateCV.First();
+                    npName.Add(cV.Name);
+                    npcvID.Add(cV.id);
+                    notPrivateCV.Remove(cV);
+                }
+
+                ViewBag.cvID = npcvID;
+                ViewBag.Name = npName;
+
+            }
 
             var projects = projRepo.getAllProjects();
 
