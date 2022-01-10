@@ -33,7 +33,7 @@
                         <li>@Html.ActionLink("Find members", "Index", "CVs")</li>
                         <li>@Html.ActionLink("Projects", "Redirect", "Projects")</li> 
                         <li>@Html.ActionLink("Unread messages", "Index", "Messages")</li>
-                        <li> <h5 id="unreadMsg">: </h5></li>
+                        <li><h5 id ="unreadMsg">: </h5> </li>
 
                     }
                 </ul>
@@ -57,6 +57,13 @@
                 $('#unreadMsg').append(data);
             })
         }
+
+         @*var loggedIn = @User.Identity.IsAuthenticated.ToString().ToLower();
+        if (loggedIn) {
+            $.get('/api/CountMsg/', function (data){
+                $("#unreadMsg").html("Unread messages:" + data);
+            })
+        }*@
 
     </script>
 

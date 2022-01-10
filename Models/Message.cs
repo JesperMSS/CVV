@@ -18,10 +18,13 @@ namespace CVSITEHT2021.Models
         [Key]
         public int MessageId { get; set; }
 
+        [DisplayName("Title")]
         public string title { get; set; }
 
+        [DisplayName("Content")]
         public string content { get; set; }
-
+        
+        [DisplayName("Read")]
         public bool isRead { get; set; }
 
         public string Sender { get; set; }
