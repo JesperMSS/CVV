@@ -1,12 +1,12 @@
-﻿using System;
-using System.Data;
-using System.Linq;
-using System.Threading.Tasks;
-using System.Net;
-using System.Web.Mvc;
-using CVSITEHT2021.Models;
+﻿using CVSITEHT2021.Models;
 using data.Models;
 using data.Repo;
+using System;
+using System.Data;
+using System.Linq;
+using System.Net;
+using System.Threading.Tasks;
+using System.Web.Mvc;
 
 namespace CVSITEHT2021.Controllers
 {
@@ -30,10 +30,10 @@ namespace CVSITEHT2021.Controllers
         }
 
         // GET: CVs/Details/5
-        [AllowAnonymous] 
+        [AllowAnonymous]
         public ActionResult Details(int id)
         {
-            
+
             if (id == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
@@ -52,7 +52,7 @@ namespace CVSITEHT2021.Controllers
         {
             var user = User.Identity.Name;
 
-           if(cvRepo.getCvByUser(user) == null)
+            if (cvRepo.getCvByUser(user) == null)
             {
                 return View();
             }
@@ -160,7 +160,7 @@ namespace CVSITEHT2021.Controllers
             base.Dispose(disposing);
         }
 
-        
+
         public async Task<ActionResult> NameSearchForm()
         {
             return View();
@@ -179,6 +179,6 @@ namespace CVSITEHT2021.Controllers
                  (SearchPhrase)));
         }
 
-      
+
     }
 }

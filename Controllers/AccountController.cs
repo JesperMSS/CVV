@@ -1,18 +1,11 @@
-﻿using System;
-using System.Globalization;
-using System.Linq;
-using System.Security.Claims;
-using System.Threading.Tasks;
-using System.Web;
-using System.Web.Mvc;
+﻿using CVSITEHT2021.Models;
 using Microsoft.AspNet.Identity;
 using Microsoft.AspNet.Identity.Owin;
 using Microsoft.Owin.Security;
-using CVSITEHT2021.Models;
-using Microsoft.AspNet.Identity.EntityFramework;
-using System.Net;
-using data.Repo;
-using data.Models;
+using System.Linq;
+using System.Threading.Tasks;
+using System.Web;
+using System.Web.Mvc;
 
 namespace CVSITEHT2021.Controllers
 {

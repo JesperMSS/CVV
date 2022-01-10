@@ -1,8 +1,7 @@
 namespace CVSITEHT2021.Migrations
 {
-    using System;
     using System.Data.Entity.Migrations;
-    
+
     public partial class projectadd : DbMigration
     {
         public override void Up()
@@ -10,34 +9,34 @@ namespace CVSITEHT2021.Migrations
             CreateTable(
                 "dbo.Projects",
                 c => new
-                    {
-                        ID = c.Int(nullable: false, identity: true),
-                        Title = c.String(nullable: false),
-                        Description = c.String(nullable: false),
-                        CreatedBy = c.String(nullable: false),
-                    })
+                {
+                    ID = c.Int(nullable: false, identity: true),
+                    Title = c.String(nullable: false),
+                    Description = c.String(nullable: false),
+                    CreatedBy = c.String(nullable: false),
+                })
                 .PrimaryKey(t => t.ID);
-            
+
             CreateTable(
                 "dbo.ProjectCVs",
                 c => new
-                    {
-                        Project_ID = c.Int(nullable: false),
-                        CV_id = c.Int(nullable: false),
-                    })
+                {
+                    Project_ID = c.Int(nullable: false),
+                    CV_id = c.Int(nullable: false),
+                })
                 .PrimaryKey(t => new { t.Project_ID, t.CV_id })
                 .ForeignKey("dbo.Projects", t => t.Project_ID, cascadeDelete: true)
                 .ForeignKey("dbo.CVs", t => t.CV_id, cascadeDelete: true)
                 .Index(t => t.Project_ID)
                 .Index(t => t.CV_id);
-            
+
             AddColumn("dbo.CVs", "Name", c => c.String(nullable: false));
             AddColumn("dbo.CVs", "PhoneNumber", c => c.String());
             AddColumn("dbo.CVs", "Mail", c => c.String(nullable: false));
             AddColumn("dbo.CVs", "Competences", c => c.String());
             DropColumn("dbo.CVs", "competances");
         }
-        
+
         public override void Down()
         {
             AddColumn("dbo.CVs", "competances", c => c.String());

@@ -1,10 +1,8 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Web;
-using System.Data.Entity;
+﻿using data.Models;
 using data.Shared;
-using data.Models;
+using System.Collections.Generic;
+using System.Data.Entity;
+using System.Linq;
 
 namespace data.Repo
 {
@@ -37,7 +35,6 @@ namespace data.Repo
                 Mail = model.Mail,
                 Workplace = model.Workplace,
                 PrivateProfile = false,
-                ImagePath = "",
             };
 
             if (model.Image != null)
@@ -106,9 +103,11 @@ namespace data.Repo
         public CV editCv(CvEditViewModel model)
         {
             CV cv = _context.cv.FirstOrDefault(x => x.id == model.Id);
-            if (model.Image != null && model.ExistingImagePath != cv.ImagePath)
+            if (model.Image != null)
             {
-                imageService.RemoveImageFromDiskIfExists(cv.ImagePath);
+                if (cv.ImagePath != null) { 
+                    imageService.RemoveImageFromDiskIfExists(cv.ImagePath);
+            }
                 cv.ImagePath = imageService.SaveImageToDisk(model.Image);
                 model.ExistingImagePath = cv.ImagePath;
             }

@@ -1,10 +1,7 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Web;
-using System.Web.Http;
+﻿using data.Models;
 using data.Repo;
-using data.Models;
+using System.Linq;
+using System.Web.Http;
 
 namespace CVSITEHT2021.Controllers
 {
@@ -23,7 +20,7 @@ namespace CVSITEHT2021.Controllers
 
         [Route("api/SendAPI/{id}/{title}/{content}/{sender}")]
         [HttpGet]
-        public IHttpActionResult SendMessage(int id, string Title,  string Content, string sender)
+        public IHttpActionResult SendMessage(int id, string Title, string Content, string sender)
         {
             Message msg = new Message
             {
@@ -36,7 +33,7 @@ namespace CVSITEHT2021.Controllers
             msgRepo.saveMessage(msg);
             return Ok();
         }
-    
+
         [Route("api/CountMsg/")]
         [HttpGet]
         public int countMsg()

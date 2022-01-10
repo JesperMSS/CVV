@@ -1,12 +1,8 @@
-﻿using CVSITEHT2021.Models;
-using System;
+﻿using data.Models;
+using data.Repo;
 using System.Collections.Generic;
 using System.Linq;
-using System.Threading.Tasks;
-using System.Web;
 using System.Web.Mvc;
-using data.Repo;
-using data.Models;
 
 namespace CVSITEHT2021.Controllers
 {
@@ -28,7 +24,7 @@ namespace CVSITEHT2021.Controllers
         {
             if (User.Identity.IsAuthenticated)
             {
-                
+
                 var cv = cvRepo.GetAllCvs();
                 var count = cv.Count();
                 List<string> Name = new List<string>();
@@ -43,7 +39,8 @@ namespace CVSITEHT2021.Controllers
 
                 ViewBag.cvID = cvID;
                 ViewBag.Name = Name;
-            } else
+            }
+            else
             {
                 var notPrivateCV = cvRepo.getAllNonPrivateCV();
                 List<string> npName = new List<string>();

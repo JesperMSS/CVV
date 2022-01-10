@@ -68,6 +68,8 @@ namespace CVSITEHT2021.Models
         [Required]
         [EmailAddress]
         [Display(Name = "Email")]
+        [RegularExpression(@"^([\w.-]+)@([\w-]+)((.(\w){2,3})+)$", ErrorMessage = "Atleast one characters in the e-mail is invalid")]
+        
         public string Email { get; set; }
 
         [Required]

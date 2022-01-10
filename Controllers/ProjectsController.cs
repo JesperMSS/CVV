@@ -1,16 +1,10 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Data;
-using System.Data.Entity;
-using System.Linq;
-using System.Threading.Tasks;
-using System.Net;
-using System.Web;
-using System.Web.Mvc;
-using CVSITEHT2021.Models;
-using Microsoft.AspNet.Identity.Owin;
-using data.Repo;
+﻿using CVSITEHT2021.Models;
 using data.Models;
+using data.Repo;
+using System.Data.Entity;
+using System.Net;
+using System.Threading.Tasks;
+using System.Web.Mvc;
 
 namespace CVSITEHT2021.Controllers
 {
