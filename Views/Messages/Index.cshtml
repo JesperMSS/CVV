@@ -1,14 +1,12 @@
-﻿@model IEnumerable<CVSITEHT2021.Models.Message>
+﻿
+@model IEnumerable<CVSITEHT2021.Models.Message>
 
 @{
     ViewBag.Title = "Index";
 }
 
-<h2>Index</h2>
+<h2>My Messages</h2>
 
-<p>
-    @Html.ActionLink("Create New", "Create")
-</p>
 <table class="table">
     <tr>
         <th>
@@ -47,9 +45,10 @@
             @Html.DisplayFor(modelItem => item.Sender)
         </td>
         <td>
-            @Html.ActionLink("Edit", "Edit", new { id=item.MessageId }) |
-            @Html.ActionLink("Details", "Details", new { id=item.MessageId }) |
-            @Html.ActionLink("Delete", "Delete", new { id=item.MessageId })
+            @if (!item.isRead) { 
+            @Html.ActionLink("Mark as read", "markRead", new { id = item.MessageId })
+            }
+            @Html.ActionLink("Delete", "Delete", new { id = item.MessageId })
         </td>
     </tr>
 }

@@ -6,6 +6,7 @@ using System.Linq;
 using System.Net;
 using System.Web;
 using System.Web.Mvc;
+using CVSITEHT2021.Repo;
 using CVSITEHT2021.Models;
 
 namespace CVSITEHT2021.Controllers
@@ -13,12 +14,26 @@ namespace CVSITEHT2021.Controllers
     public class MessagesController : Controller
     {
         private CVDatabase db = new CVDatabase();
+        private readonly CVDatabase _context;
+        public CVRepository cvRepo
+        {
+            get { return new CVRepository(_context ?? new CVDatabase()); }
+        }
+        public MessageRepository msgRepo
+        {
+            get { return new MessageRepository(_context ?? new CVDatabase()); }
+        }
 
         // GET: Messages
         public ActionResult Index()
         {
-            var messages = db.Messages.Include(m => m.CV);
-            return View(messages.ToList());
+                var cv = cvRepo.getCvByUser(User.Identity.Name);
+                if(cv == null)
+                {
+                return HttpNotFound();
+            }
+                var messages = msgRepo.getMsgByUser(User.Identity.Name);
+                return View(messages.ToList());
         }
 
         // GET: Messages/Details/5
@@ -40,7 +55,7 @@ namespace CVSITEHT2021.Controllers
         public ActionResult Create(int id)
         {
 
-           CV cV = db.cv.FirstOrDefault(x => x.Mail == User.Identity.Name);
+            CV cV = db.cv.FirstOrDefault(x => x.Mail == User.Identity.Name);
             if(cV== null)
             {
                 var modelWithOutSender = new MessagesViewModel
@@ -135,6 +150,12 @@ namespace CVSITEHT2021.Controllers
             db.Messages.Remove(message);
             db.SaveChanges();
             return RedirectToAction("Index");
+        }
+
+        public ActionResult markRead(int id)
+        {
+                msgRepo.markMessageRead(id);
+                return RedirectToAction("Index");   
         }
 
         protected override void Dispose(bool disposing)

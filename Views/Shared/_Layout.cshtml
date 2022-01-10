@@ -1,4 +1,5 @@
-﻿<!DOCTYPE html>
+﻿@using CVSITEHT2021.Repo
+<!DOCTYPE html>
 <html>
 <head>
     <meta charset="utf-8" />
@@ -30,7 +31,7 @@
                     @if (User.Identity.IsAuthenticated)
                     {
                         <li>@Html.ActionLink("Find members", "Index", "CVs")</li>
-                        <li>@Html.ActionLink("Projects", "Redirect", "Projects")</li>
+                        <li>@Html.ActionLink("Projects", "Redirect", "Projects")</li> 
                         <li>@Html.ActionLink("Unread messages", "Index", "Messages")</li>
                         <li> <h5 id="unreadMsg">: </h5></li>
 

@@ -353,8 +353,6 @@
     <Content Include="Views\Projects\Redirect.cshtml" />
     <Content Include="Views\Messages\Create.cshtml" />
     <Content Include="Views\Messages\Delete.cshtml" />
-    <Content Include="Views\Messages\Details.cshtml" />
-    <Content Include="Views\Messages\Edit.cshtml" />
     <Content Include="Views\Messages\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>

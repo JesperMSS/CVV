@@ -13,38 +13,37 @@
     <div class="form-group">
         @Html.LabelFor(model => model.Title, htmlAttributes: new { @class = "control-label col-md-2" })
         <div class="col-md-10">
-            @Html.EditorFor(model => model.Title, new { htmlAttributes = new { @ID = "TITLE", @class = "form-control" } })
+            @Html.EditorFor(model => model.Title, new { htmlAttributes = new { @ID = "title", @class = "form-control" } })
             @Html.ValidationMessageFor(model => model.Title, "", new { @class = "text-danger" })
         </div>
     </div>
     <div class="form-group">
         @Html.LabelFor(model => model.Content, htmlAttributes: new { @class = "control-label col-md-2" })
         <div class="col-md-10">
-            @Html.EditorFor(model => model.Content, new { htmlAttributes = new { @ID = "CONTENT", @class = "form-control" } })
+            @Html.EditorFor(model => model.Content, new { htmlAttributes = new { @ID = "content", @class = "form-control" } })
             @Html.ValidationMessageFor(model => model.Content, "", new { @class = "text-danger" })
         </div>
     </div>
-
-    @*@if (Model.Sender != null)
+    @if (Model.Sender != null)
     {
         <div class="form-group">
             @Html.LabelFor(model => model.Sender, htmlAttributes: new { @class = "control-label col-md-2" })
             <div class="col-md-10">
-                @Html.EditorFor(model => model.Sender, new { htmlAttributes = new { @ID = "SENDER", @class = "form-control", @readonly = "readonly" } })
+                @Html.EditorFor(model => model.Sender, new { htmlAttributes = new { @ID = "senderName", @class = "form-control", @readonly = "readonly" } })
                 @Html.ValidationMessageFor(model => model.Sender, "", new { @class = "text-danger" })
             </div>
         </div>
     }
     else
-    {*@
-        @*<div class="form-group">
+    {
+        <div class="form-group">
             @Html.LabelFor(model => model.Sender, htmlAttributes: new { @class = "control-label col-md-2" })
             <div class="col-md-10">
-                @Html.EditorFor(model => model.Sender, new { htmlAttributes = new { @ID = "SENDER", @class = "form-control" } })
+                @Html.EditorFor(model => model.Sender, new { htmlAttributes = new { @ID = "senderName", @class = "form-control" } })
                 @Html.ValidationMessageFor(model => model.Sender, "", new { @class = "text-danger" })
             </div>
-        </div>*@
-    @*}*@
+        </div>
+    }
     <div class="form-group">
         <div class="col-md-10">
             @Html.HiddenFor(model => model.Reciver)
@@ -62,14 +61,14 @@
     <script>
         $('.MessageSend').click(function () {
             var ReciverID = $(this).data('id');
-            var content = $('#CONTENT').val();
-            var sender = $('#SENDER').val();
-            var title = $('#TITLE').val();
-            if (content.length < 3 || sender.length < 2) {
+            var content = $('#content').val();
+            var senderName = $('#senderName').val();
+            var title = $('#title').val();
+            if (content.length < 3 || senderName.length < 2) {
                 window.alert('Please check all fields.')
             }
             else
-                $.get('/api/SendAPI/' + ReciverID + '/' + title + '/' + content + '/' + sender, function () { 
+                $.get('/api/SendAPI/' + ReciverID + '/' + title + '/' + content + '/' + senderName, function () {
                 window.alert('Message sent');
                 window.location.reload();
             })
@@ -78,3 +77,4 @@
     </script>
     @Scripts.Render("~/bundles/jqueryval")
 }
+    

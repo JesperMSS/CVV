@@ -80,10 +80,15 @@
         </dd>
     </dl>
 </div>
+
+@if (User.Identity.Name == Model.Mail)
+{
 <p>
     @Html.ActionLink("Edit", "Edit", new { id = Model.id })
 </p>
-
-<div>@{Html.RenderAction("Create", "Messages", new { id = Model.id });} </div>
-
+}
+else
+{
+    <div>@{Html.RenderAction("Create", "Messages", new { id = Model.id });} </div>
+}
 

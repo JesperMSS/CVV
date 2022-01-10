@@ -16,6 +16,10 @@ namespace CVSITEHT2021.Controllers
         {
             get { return new MessageRepository(_context ?? new CVDatabase()); }
         }
+        public CVRepository cvRepo
+        {
+            get { return new CVRepository(_context ?? new CVDatabase()); }
+        }
 
         [Route("api/SendAPI/{id}/{title}/{content}/{sender}")]
         [HttpGet]
@@ -37,10 +41,15 @@ namespace CVSITEHT2021.Controllers
         [HttpGet]
         public int countMsg()
         {
-            var msg = msgRepo.getMsgByUser(User.Identity.Name);
-
-            return msg.Count();
+            var cv = cvRepo.getCvByUser(User.Identity.Name);
+            if (cv != null)
+            {
+                var msg = msgRepo.getUsersUnreadMsg(cv.id);
+                return msg.Count();
+            }
+            return 0;
         }
 
     }
 }
+

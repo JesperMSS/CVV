@@ -41,8 +41,8 @@ namespace CVSITEHT2021.Repo
 
         public List<Message> getMsgByUser(string user)
         {
-            var UserCVID = _context.cv.FirstOrDefault(x => x.Mail == user).id;
-            return GetMessageByCV(UserCVID);
+                var UserCVID = _context.cv.FirstOrDefault(x => x.Mail == user).id;
+                return GetMessageByCV(UserCVID);
         }
 
         public List<Message> getUsersUnreadMsg(int id)
@@ -54,7 +54,8 @@ namespace CVSITEHT2021.Repo
 
         public void saveMessage(Message message)
         {
-            _context.Messages.Add(message);
+
+            _context.Entry(message).State = System.Data.Entity.EntityState.Modified;
             _context.SaveChanges();
         }
 
