@@ -9,25 +9,26 @@
 <div>
     <div>
         <h3>Selection of members</h3>
-
+        @{var i = 0;}
         <ul>
             @foreach (var item in ViewBag.Name)
             {
+                
                 <li>@item</li>
-                @Html.ActionLink("View profile", "Details", "CV", new { id = ViewBag.cvID }, htmlAttributes: null)
-
-
-
-
+                @Html.ActionLink("View profile", "Details", "CVs",  new { id = ViewBag.cvID[i] }, null)
+                i++;
             }
         </ul>
+
+      
         <ul>
             <h3>Selection of projects</h3>
+            @{var x = 0;}
             @foreach (var item in ViewBag.projectTitle)
             {
                 <li>@item</li>
-                @Html.ActionLink("Read more about this project", "Details", "Project", new { id = ViewBag.projId }, htmlAttributes: null)
-
+                @Html.ActionLink("Read more about this project", "Details", "Projects", new { id = ViewBag.projId[x] }, null)
+                x++;
 
             }
         </ul>

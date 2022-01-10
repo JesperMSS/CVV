@@ -37,6 +37,7 @@ namespace CVSITEHT2021.Controllers
                     cvID.Add(cV.id);
                     cv.Remove(cV);
                 }
+
                 ViewBag.cvID = cvID;
                 ViewBag.Name = Name;
             //}
