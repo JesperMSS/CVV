@@ -45,7 +45,8 @@ namespace CVSITEHT2021.Controllers
                 var notPrivateCV = cvRepo.getAllNonPrivateCV();
                 List<string> npName = new List<string>();
                 List<int> npcvID = new List<int>();
-                for (int i = 0; i <= 5 && i < notPrivateCV.Count(); i++)
+                var npcount = notPrivateCV.Count();
+                for (int i = 0; i <= 5 && i < npcount; i++)
                 {
                     CV cV = notPrivateCV.First();
                     npName.Add(cV.Name);
@@ -60,9 +61,10 @@ namespace CVSITEHT2021.Controllers
 
             var projects = projRepo.getAllProjects();
 
+            var projcount = projects.Count();
             List<string> projectTitle = new List<string>();
             List<int> projId = new List<int>();
-            for (int i = 0; i <= 5 && i < projects.Count(); i++)
+            for (int i = 0; i <= 5 && i < projcount; i++)
             {
                 Project project = projects.Last();
                 projectTitle.Add(project.Title);
